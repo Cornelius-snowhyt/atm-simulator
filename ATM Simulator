@@ -1,0 +1,151 @@
+THis is a beginner=friendly C++ project that simulates a simple ATM machine.
+It allows a user to log in, check balance, deposit money and withdraw money.
+
+##==FEATURES
+-User authentification (PIN check)
+-Balance inquiry
+-Deposit money
+-Withdraw money (with balance check)
+-Exit option
+
+===========================================
+Welcome to CORNELIUS-SNOWHYT's ATM Simulator
+============================================
+
+Enter your PIN: 3210
+1.Check Balance
+2. Deposit
+3. Withdraw
+4. Exit
+
+Choose option 1
+YOUR Balance is GHC15000.00
+
+##HOW TO RUN
+1.Save the file as atm-simulator.cpp
+2. Compile with:
+g++ atm-simulator.cpp -o atm-simulator
+3. ./atm-simulator
+
+
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+int main() { 
+    //====Author: CORNELIUS-SNOWHYT========
+    //Simple ATM Simulator
+
+    string pin = "3210";
+    string enteredPin;
+    double balance = 15000.50;
+    int choice;
+
+    cout << "================================================\n";
+    cout << "   Welcome to CORNELIUS-SNOWHYT's ATM Simulator\n";
+    cout << "================================================\n";
+
+    cout << "Enter your PIN: ";
+    cin >> enteredPin;
+
+    if (enteredPin != pin) { 
+        cout << "Invalid PIN. Access denied.\n";
+        return 0;
+    }
+    do { 
+        cout << "\n1. Check Balance\n";
+        cout << "\n2. Deposit\n";
+        cout << "\n3. Withdrawal\n";
+        cout << "\n4. Exit'n";
+        cout << "Choose option: ";
+        cin >> choice;
+
+        if (choice == 1) { 
+            cout << "You balance is: GHC" << fixed << setprecision(2) << balance << "\n";
+
+        }
+        else if (choice == 2) { 
+            double deposit;
+            cout << "Enter amount to deposit: GHC";
+            cin >> deposit;
+            balance += deposit;
+            cout << "Deposit successful. New balnace: GHC" << balance << "\n";
+
+        }
+        else if (choice == 3) { 
+            double withdraw;
+            cout << "Enter amount to withdraw: GHC";
+            cin >> withdraw;
+            if (withdraw > balance) { 
+                cout << "Insufficient funds!\n";
+
+            } else { 
+                balance -= withdraw;
+                cout << "Withdrawal successful. New balance: GHC" << balance << "\n";
+
+            }
+
+        }
+        else if (choice == 4) {
+            cout << "Thank you for using CORNELIUS-SNOWHYT's ATM. Goodbye!\n";
+        } else {
+            cout << "Invalid option. Try again.\n";
+        }
+    } while (choice  != 4);
+    return 0; 
+
+}
+
+=====EXAMPLE RUN==============================
+
+================================================
+   Welcome to CORNELIUS-SNOWHYT's ATM Simulator
+================================================
+Enter your PIN: 3210
+
+1. Check Balance
+
+2. Deposit
+
+3. Withdrawal
+
+4. Exit'nChoose option: 1
+You balance is: GHC15000.50
+
+1. Check Balance
+
+2. Deposit
+
+3. Withdrawal
+
+4. Exit'nChoose option: 2
+Enter amount to deposit: GHC5000
+Deposit successful. New balnace: GHC20000.50
+
+1. Check Balance
+
+2. Deposit
+
+3. Withdrawal
+
+4. Exit'nChoose option: 3
+Enter amount to withdraw: GHC500
+Withdrawal successful. New balance: GHC19500.50
+
+1. Check Balance
+
+2. Deposit
+
+3. Withdrawal
+
+4. Exit'nChoose option: 4
+Thank you for using CORNELIUS-SNOWHYT's ATM. Goodbye!
+snow@snow-Lenovo-IdeaPad-U410-Touch:~/Documents
+
+### Skills Demonstrated
+-Loops and conditions
+-User input handling
+-Beginner-level project
+
